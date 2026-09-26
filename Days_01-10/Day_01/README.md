@@ -32,15 +32,11 @@ You can accomplish this task using either the AWS Management Console or the AWS 
 
 ### Option 2: Using the AWS CLI
 
-If you prefer using the terminal on the AWS client machine (or your own terminal with credentials configured), you can simply run the following command to create the key pair and save the private key locally:
+If you prefer using the terminal on the AWS client machine, you can simply run the following command to create the key pair:
 
 ```bash
 aws ec2 create-key-pair \
-    --region us-east-1 \
-    --key-name nautilus-kp \
-    --key-type rsa \
-    --query "KeyMaterial" \
-    --output text > nautilus-kp.pem
+  --key-name nautilus-kp \
+  --key-type rsa \
+  --region us-east-1
 ```
-
-*Note: Be sure to secure your downloaded `.pem` file by updating its permissions (e.g., `chmod 400 nautilus-kp.pem` on Linux/Mac) so that it isn't publicly readable.*
